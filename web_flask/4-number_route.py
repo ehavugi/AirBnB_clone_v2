@@ -27,5 +27,20 @@ def textme(text):
     return "C {}".format(text.replace("_", " "))
 
 
+@app.route("/python", strict_slashes=False)
+@app.route("/python/<text>", strict_slashes=False)
+def pythoncool(text="is cool"):
+    """Handle python is cool!
+    """
+    return "Python {}".format(text.replace("_", " "))
+
+
+@app.route("/number/<int:n>", strict_slashes=False)
+def routeInt(n):
+    """Routes only for integer n otherwise 404 error
+    """
+    return "{} is a number".format(n)
+
+
 if __name__ == '__main__':
     app.run(debug=False, host="0.0.0.0", port=5000)

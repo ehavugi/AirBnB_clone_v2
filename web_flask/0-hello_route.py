@@ -10,7 +10,7 @@ app = Flask(__name__)
 def hello_world():
     """Return hello HBNB
     """
-    return "Hello HBNB"
+    return "Hello HBNB!"
 
 
 if __name__ == '__main__':
