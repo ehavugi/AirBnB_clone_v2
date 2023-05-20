@@ -1,11 +1,11 @@
 # 0x04. AirBnB clone - Web framework
 ## Mandatory
-- [ ] 0. Hello Flask!
-- [ ] 1. HBNB
-- [ ] 2. C is fun!
-- [ ] 3. Python is cool!
-- [ ] 4. Is it a number?
-- [ ] 5. Number template
+- [x] 0. Hello Flask!
+- [x] 1. HBNB
+- [x] 2. C is fun!
+- [x] 3. Python is cool!
+- [x] 4. Is it a number?
+- [x] 5. Number template
 - [ ] 6. Odd or even?
 - [ ] 7. Improve engines
 - [ ] 8. List of states
