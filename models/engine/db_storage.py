@@ -31,10 +31,10 @@ class DBStorage:
         self.__engine = create_engine('mysql+mysqldb://{}:{}@{}/{}'.format(
                                      user, passwd, host, db),
                                      pool_pre_ping=True)
+        self.__session = sessionmaker(bind=self.__engine)()
 
     def all(self, cls=None):
         """Query on current db session all objects"""
-        self.__session = sessionmaker(bind=self.__engine)()
         d = {}
         if cls and isinstance(cls, str):
             cls = eval(cls)
@@ -70,3 +70,8 @@ class DBStorage:
         Base.metadata.create_all(self.__engine)
         session = sessionmaker(bind=self.__engine, expire_on_commit=False)
         self.__session = scoped_session(session)()
+
+    def close(self):
+        """Remove session"""
+        self.reload()
+        self.__session.close()
