@@ -34,7 +34,7 @@ class BaseModel:
                     setattr(self, key, value)
                 if key != '__class__':
                     setattr(self, key, value)
-            if os.getenv("HBNB_TYPE_STORAGE") == "db":
+            if os.getenv("HBNB_TYPE_STORAGE") == "db" or True:
                 if not hasattr(kwargs, 'id'):
                     setattr(self, 'id', str(uuid.uuid4()))
                 if not hasattr(kwargs, 'created_at'):
