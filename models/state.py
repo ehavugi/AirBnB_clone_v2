@@ -3,12 +3,11 @@
     State Module for HBNB project
 """
 import os
+import models
 from sqlalchemy import Column, ForeignKey, String
 from sqlalchemy.orm import relationship
 from models.base_model import BaseModel, Base
 from models import storage_type
-from models import storage
-
 
 class State(BaseModel, Base):
     """ State class """
@@ -23,10 +22,11 @@ class State(BaseModel, Base):
         @property
         def cities(self):
             """Return a list of cities in a state
+
             """
             cities_in_state = []
 
-            for key, value in storage.all().items():
+            for key, value in models.storage.all().items():
                 if key.split('.')[0] == "City":
                     city = value
                     if self.id == city.state_id:
