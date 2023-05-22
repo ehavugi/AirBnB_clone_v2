@@ -61,9 +61,16 @@ def even_odd(n):
     return render_template("6-number_odd_or_even.html", n=n)
 
 
-@app.route("/states_list", strict_slashes = False)
+def get_name(value):
+    """get Name of the attribute
+    """
+    return value.name
+
+
+@app.route("/states_list", strict_slashes=False)
 def states_listing():
-    all_states = storage.all("State").values()
+    all_states = list(storage.all("State").values())
+    all_states.sort(key=get_name)
     return render_template("7-states_list.html", states=all_states)
 
 
